@@ -1,0 +1,168 @@
+.login {
+
+    position: absolute;
+    height: 750px;
+    width: 650px;
+    background-color: #008C95;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+
+    -webkit-box-shadow: 0px 10px 10px -2px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 10px 10px -2px rgba(0,0,0,0.5);
+    box-shadow: 0px 10px 10px -2px rgba(0,0,0,0.5);
+    
+    &__icon {
+
+        color: #fff;
+        font-size: 60px;
+        position: absolute;
+
+        &--login {
+            left: 120px;
+            top: 250px;
+        }
+
+        &--password {
+            left: 120px;
+            top: 390px;
+        }
+    }
+
+    &__input {
+        display: block;
+        width: 425px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        border:none;
+        border-bottom: 3px solid #fff;
+        padding-left: 103px;
+        padding-bottom: 15px;
+        font-family:'Roboto', sans-serif;
+        height: 5rem;
+        font-size: 2.8rem;
+
+        color: #fff;
+
+        &--login {
+            top: 271px;
+            background-color: transparent;
+        }
+
+        &--password {
+            top: 411px;
+            background-color: transparent;
+        }
+
+        &::placeholder {
+            color: #ffffffb3;
+            text-transform: uppercase;
+            font-size: 2.8rem;
+        }
+    }
+
+    &__btn {
+
+        position: absolute;
+        background-color: #00F0FF;
+        border: none;
+
+        bottom: 169px;
+        height: 60px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 425px;
+
+        color: #fff;
+        font-size: 2.8rem;
+        font-family:'Roboto', sans-serif;
+        text-transform: uppercase;
+
+        -webkit-box-shadow: 0px 10px 10px -2px rgba(0,0,0,0.35);
+        -moz-box-shadow: 0px 10px 10px -2px rgba(0,0,0,0.35);
+        box-shadow: 0px 10px 10px -2px rgba(0,0,0,0.35);
+        transition: all .2s;
+        cursor: pointer;
+        
+        &:active {
+            transform: translate(-50%, 5px);
+            -webkit-box-shadow: 0px 5px 10px -2px rgba(0,0,0,0.35);
+            -moz-box-shadow: 0px 5px 10px -2px rgba(0,0,0,0.35);
+            box-shadow: 0px 5px 10px -2px rgba(0,0,0,0.35);
+            outline: none;
+        }
+    }
+    &__forgot {
+        color: #fff;
+        font-family: 'Lato', sans-serif;
+        font-size: 1.8rem;
+        position: absolute;
+        bottom: 126px;
+        left: 113px;
+    }
+    @media screen and (max-width: 1400px){
+        height: 550px;
+        width: 450px;
+        -webkit-box-shadow: 0px 5px 5px -2px rgba(0,0,0,0.35);
+        -moz-box-shadow: 0px 5px 5px -2px rgba(0,0,0,0.35);
+        box-shadow: 0px 5px 5px -2px rgba(0,0,0,0.35);
+        &__icon {
+            font-size: 40px;
+            &--login {
+                left: 80px;
+                top: 165px;
+            }
+    
+            &--password {
+                left: 80px;
+                top: 265px;
+            }
+        }
+
+        &__input {
+            width: 300px;
+            padding-left: 60px;
+            padding-bottom: 3px;
+            height:3.3rem;
+            font-size: 2.2rem;
+    
+            &--login {
+                top: 180px;
+            }
+    
+            &--password {
+                top: 280px;
+            }
+    
+            &::placeholder {
+                font-size: 2.2rem;
+            }
+        }
+
+        &__btn {
+    
+            bottom: 140px;
+            height: 40px;
+            width: 300px;
+            font-size: 1.8rem;
+            -webkit-box-shadow: 0px 5px 5px -2px rgba(0,0,0,0.35);
+            -moz-box-shadow: 0px 5px 5px -2px rgba(0,0,0,0.35);
+            box-shadow: 0px 5px 5px -2px rgba(0,0,0,0.35);
+
+            &:active {
+                transform: translate(-50%, 2px);
+                -webkit-box-shadow: 0px 2px 2px -2px rgba(0,0,0,0.35);
+                -moz-box-shadow: 0px 2px 2px -2px rgba(0,0,0,0.35);
+                box-shadow: 0px 2px 2px -2px rgba(0,0,0,0.35);
+            }
+        }
+        &__forgot {
+            font-size: 1.4rem;
+            position: absolute;
+            bottom: 115px;
+            left: 78px;
+        }
+    }
+    
+}

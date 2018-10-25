@@ -1,0 +1,66 @@
+.rooms {
+    
+    width: 800px;
+    height: 300px;
+    position: absolute;
+    left: 50%;
+    top: 150px;
+    transform: translateX(-50%);
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 25px;
+
+    & heading--primary {
+        top: 3rem;
+    }
+    &__card {
+        
+        width: 250px;
+        height: 100%;
+        position: relative;
+        transition: all .2s;
+        -webkit-box-shadow: 0px 10px 10px -2px rgba(0,0,0,0.5);
+        -moz-box-shadow: 0px 10px 10px -2px rgba(0,0,0,0.5);
+        box-shadow: 0px 10px 10px -2px rgba(0,0,0,0.5);
+        &--1 {
+            background-color: #00955F;
+        }
+        &--2
+         {
+            background-color: #008C95;
+        }
+        &--3 {
+            background-color: #912F8D;
+        }
+        &:active {
+            transform: scale(.96);
+
+            -webkit-box-shadow: 0px 10px 10px -2px rgba(0,0,0,0.5);
+            -moz-box-shadow: 0px 5px 5px -2px rgba(0,0,0,0.5);
+            box-shadow: 0px 5px 5px -2px rgba(0,0,0,0.5);
+        }
+    }
+    &__desc {
+        color: #fff;
+        font-size: 2rem;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 100px;
+        white-space: nowrap;
+    }
+}
+
+// #005ba0
+// #0d42bd
+// #00da89
+// #350efd
+// #00b0a7
+// #1b23f6
+// #00104e
+// #0c13d6
+// #00eeec
+// #004abc
+// #00b4e0
+// #0055d8

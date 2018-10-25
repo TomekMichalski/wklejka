@@ -1,0 +1,38 @@
+.heading__primary {
+    position: absolute;
+    color: #fff;
+    font-size: 4.8rem;
+    display: block;
+    left: 50%;
+    transform: translateX(-50%);
+
+    white-space: nowrap;
+    &--login {
+        top: 7.6rem;
+    }
+    &--rooms {
+        top: 4rem;
+    }
+
+    @media screen and (max-width: 1400px){
+        font-size: 3.6rem;
+        &--login {
+            top: 5rem;
+        }
+    }
+}
+.heading__secondary {
+    position: absolute;
+    color: #fff;
+    font-size: 3.3rem;
+    display: block;
+    left: 50%;
+    transform: translateX(-50%);
+
+    white-space: nowrap;
+    &--rooms {
+        top: 85px;
+        font-size: 3.6rem;
+        
+    }
+}

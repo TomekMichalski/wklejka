@@ -1,0 +1,238 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  font-weight: 400; }
+
+body, html {
+  font-size: 62.5%;
+  font-family: 'Lato', sans-serif;
+  overflow-x: hidden;
+  width: 100%; }
+
+*:focus {
+  outline: none; }
+
+.body {
+  background-color: #001b1f; }
+  .body--login {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Cpolygon fill='%23005ba0' points='957 450 539 900 1396 900'/%3E%3Cpolygon fill='%230d42bd' points='957 450 872.9 900 1396 900'/%3E%3Cpolygon fill='%2300da89' points='-60 900 398 662 816 900'/%3E%3Cpolygon fill='%23350efd' points='337 900 398 662 816 900'/%3E%3Cpolygon fill='%2300b0a7' points='1203 546 1552 900 876 900'/%3E%3Cpolygon fill='%231b23f6' points='1203 546 1552 900 1162 900'/%3E%3Cpolygon fill='%2300104e' points='641 695 886 900 367 900'/%3E%3Cpolygon fill='%230c13d6' points='587 900 641 695 886 900'/%3E%3Cpolygon fill='%2300eeec' points='1710 900 1401 632 1096 900'/%3E%3Cpolygon fill='%23004abc' points='1710 900 1401 632 1365 900'/%3E%3Cpolygon fill='%2300b4e0' points='1210 900 971 687 725 900'/%3E%3Cpolygon fill='%230055d8' points='943 900 1210 900 971 687'/%3E%3C/svg%3E");
+    background-attachment: fixed;
+    background-size: cover; }
+
+.heading__primary {
+  position: absolute;
+  color: #fff;
+  font-size: 4.8rem;
+  display: block;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap; }
+  .heading__primary--login {
+    top: 7.6rem; }
+  .heading__primary--rooms {
+    top: 4rem; }
+  @media screen and (max-width: 1400px) {
+    .heading__primary {
+      font-size: 3.6rem; }
+      .heading__primary--login {
+        top: 5rem; } }
+
+.heading__secondary {
+  position: absolute;
+  color: #fff;
+  font-size: 3.3rem;
+  display: block;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap; }
+  .heading__secondary--rooms {
+    top: 85px;
+    font-size: 3.6rem; }
+
+.error {
+  position: absolute;
+  height: 450px;
+  width: 350px;
+  left: 50%;
+  top: 30%;
+  transform: translate(-50%, -50%); }
+  .error .heading--primary {
+    color: aqua; }
+  .error__message {
+    color: #fff;
+    line-height: 120%;
+    font-size: 2rem;
+    top: 200px;
+    text-align: center; }
+    .error__message:not(:last-child) {
+      margin: 200px auto 50px auto; }
+    .error__message a {
+      color: aqua;
+      text-decoration: none; }
+
+.login {
+  position: absolute;
+  height: 750px;
+  width: 650px;
+  background-color: #008C95;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-box-shadow: 0px 10px 10px -2px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 10px 10px -2px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 10px 10px -2px rgba(0, 0, 0, 0.5); }
+  .login__icon {
+    color: #fff;
+    font-size: 60px;
+    position: absolute; }
+    .login__icon--login {
+      left: 120px;
+      top: 250px; }
+    .login__icon--password {
+      left: 120px;
+      top: 390px; }
+  .login__input {
+    display: block;
+    width: 425px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border: none;
+    border-bottom: 3px solid #fff;
+    padding-left: 103px;
+    padding-bottom: 15px;
+    font-family: 'Roboto', sans-serif;
+    height: 5rem;
+    font-size: 2.8rem;
+    color: #fff; }
+    .login__input--login {
+      top: 271px;
+      background-color: transparent; }
+    .login__input--password {
+      top: 411px;
+      background-color: transparent; }
+    .login__input::placeholder {
+      color: #ffffffb3;
+      text-transform: uppercase;
+      font-size: 2.8rem; }
+  .login__btn {
+    position: absolute;
+    background-color: #00F0FF;
+    border: none;
+    bottom: 169px;
+    height: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 425px;
+    color: #fff;
+    font-size: 2.8rem;
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+    -webkit-box-shadow: 0px 10px 10px -2px rgba(0, 0, 0, 0.35);
+    -moz-box-shadow: 0px 10px 10px -2px rgba(0, 0, 0, 0.35);
+    box-shadow: 0px 10px 10px -2px rgba(0, 0, 0, 0.35);
+    transition: all .2s;
+    cursor: pointer; }
+    .login__btn:active {
+      transform: translate(-50%, 5px);
+      -webkit-box-shadow: 0px 5px 10px -2px rgba(0, 0, 0, 0.35);
+      -moz-box-shadow: 0px 5px 10px -2px rgba(0, 0, 0, 0.35);
+      box-shadow: 0px 5px 10px -2px rgba(0, 0, 0, 0.35);
+      outline: none; }
+  .login__forgot {
+    color: #fff;
+    font-family: 'Lato', sans-serif;
+    font-size: 1.8rem;
+    position: absolute;
+    bottom: 126px;
+    left: 113px; }
+  @media screen and (max-width: 1400px) {
+    .login {
+      height: 550px;
+      width: 450px;
+      -webkit-box-shadow: 0px 5px 5px -2px rgba(0, 0, 0, 0.35);
+      -moz-box-shadow: 0px 5px 5px -2px rgba(0, 0, 0, 0.35);
+      box-shadow: 0px 5px 5px -2px rgba(0, 0, 0, 0.35); }
+      .login__icon {
+        font-size: 40px; }
+        .login__icon--login {
+          left: 80px;
+          top: 165px; }
+        .login__icon--password {
+          left: 80px;
+          top: 265px; }
+      .login__input {
+        width: 300px;
+        padding-left: 60px;
+        padding-bottom: 3px;
+        height: 3.3rem;
+        font-size: 2.2rem; }
+        .login__input--login {
+          top: 180px; }
+        .login__input--password {
+          top: 280px; }
+        .login__input::placeholder {
+          font-size: 2.2rem; }
+      .login__btn {
+        bottom: 140px;
+        height: 40px;
+        width: 300px;
+        font-size: 1.8rem;
+        -webkit-box-shadow: 0px 5px 5px -2px rgba(0, 0, 0, 0.35);
+        -moz-box-shadow: 0px 5px 5px -2px rgba(0, 0, 0, 0.35);
+        box-shadow: 0px 5px 5px -2px rgba(0, 0, 0, 0.35); }
+        .login__btn:active {
+          transform: translate(-50%, 2px);
+          -webkit-box-shadow: 0px 2px 2px -2px rgba(0, 0, 0, 0.35);
+          -moz-box-shadow: 0px 2px 2px -2px rgba(0, 0, 0, 0.35);
+          box-shadow: 0px 2px 2px -2px rgba(0, 0, 0, 0.35); }
+      .login__forgot {
+        font-size: 1.4rem;
+        position: absolute;
+        bottom: 115px;
+        left: 78px; } }
+
+.rooms {
+  width: 800px;
+  height: 300px;
+  position: absolute;
+  left: 50%;
+  top: 150px;
+  transform: translateX(-50%);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 25px; }
+  .rooms heading--primary {
+    top: 3rem; }
+  .rooms__card {
+    width: 250px;
+    height: 100%;
+    position: relative;
+    transition: all .2s;
+    -webkit-box-shadow: 0px 10px 10px -2px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0px 10px 10px -2px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 10px 10px -2px rgba(0, 0, 0, 0.5); }
+    .rooms__card--1 {
+      background-color: #00955F; }
+    .rooms__card--2 {
+      background-color: #008C95; }
+    .rooms__card--3 {
+      background-color: #912F8D; }
+    .rooms__card:active {
+      transform: scale(0.96);
+      -webkit-box-shadow: 0px 10px 10px -2px rgba(0, 0, 0, 0.5);
+      -moz-box-shadow: 0px 5px 5px -2px rgba(0, 0, 0, 0.5);
+      box-shadow: 0px 5px 5px -2px rgba(0, 0, 0, 0.5); }
+  .rooms__desc {
+    color: #fff;
+    font-size: 2rem;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 100px;
+    white-space: nowrap; }
