@@ -1,0 +1,33 @@
+.channels {
+    width: 100%;
+    height: 70%;
+    position: absolute;
+    bottom: 0;
+    color: #fff;
+    font-size: 2rem;
+    &__heading {
+        text-decoration: none;
+        color: #fff;
+        display: block;
+        width: 100%;
+        height: 45px;
+        background-color: #00798B;
+        padding: 10px 15px 0 15px;
+        margin-top: 1px;
+    }
+    &__category:target .channels__dropdown{
+        height: 45px;
+        display: block;
+        margin-top: 1px;
+        padding: 10px 15px 0 15px;
+    }
+    &__dropdown {
+        display: block;
+        overflow: hidden;
+        height: 0px;
+        transition: all .3s;
+        background-color: #005360;
+        
+        padding-left: 15px;
+    }
+}

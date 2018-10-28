@@ -1,0 +1,15 @@
+.logout {
+    font-size: 6rem;
+    color: #fff;
+    background-color: #008C95;
+    position: absolute;
+    padding: 10px;
+    bottom: 100px;
+    right: 100px;
+    cursor: pointer;
+    transition: all .2s;
+    &:active {
+        transform: scale(0.95);
+        background-color: darken(#008C95,5%);
+    }
+}

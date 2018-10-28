@@ -1,0 +1,165 @@
+.chatroom {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    font-family: 'lato', sans-serif;
+    &__left {
+        background-color: #153941;
+        width: 300px;
+        height: 100%;
+        position: fixed;
+    }
+
+    &__time {
+        margin: 15px 15px 0 15px;
+        width: calc(100% - (2*15px));
+        height: 25px;
+        background-color: #1F5754;
+        color: #fff;
+        font-size: 1.8rem;
+        padding: 1px 5px 0 5px;
+        position: relative;
+
+        &__date {
+            display: block;
+            position: absolute;
+        }
+
+        &__clock {
+            position: absolute;
+            right: 5px;
+            display: block;
+        }
+    }
+    
+    &__form {
+        width: calc(100% - 300px);
+        height: 100px;
+        background-color: #1C4F5A;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        &__message {
+            resize: none;
+            width: 1000px;
+            height: calc(100% - 40px);
+            background-color: #0D262B;
+            position: absolute;
+            border: none;
+            margin: 20px 0 20px 100px;
+            font-size: 2rem;
+            color: #fff;
+            padding: 10px;
+        }
+        &__inputfile {
+            width: 0.1px;
+            height: 0.1px;
+            opacity: 0;
+            overflow: hidden;
+            position: absolute;
+            z-index: -1;
+            
+        }
+        &__attach {
+            font-size: 5rem;
+            color: #fff;
+            display: block;
+            position: absolute;
+            margin: 23px 0 30px 25px;
+            transform: rotate(30deg);
+            cursor: pointer;
+            transition: all .4s;
+            &:hover {
+                color: #00C8BE;
+                transform: rotate(20deg);
+            }
+            &--active {
+                color: #00C8BE;
+                transform: rotate(380deg);
+            }
+        }
+        &__button {
+            height: 60px;
+            width: 60px;
+            border: none;
+            background-color: #153941;
+            color: #fff;
+            position: absolute;
+            left: 1110px;
+            top: 20px;
+
+            cursor: pointer;
+
+            &:active {
+                transform: scale(0.95);
+            }
+        }
+    }
+}
+.chat {
+    width: calc(100% - 300px);
+    position: absolute;
+    right: 0;
+    height: calc(100% - 100px);
+    display: flex;
+    flex-direction: column-reverse;
+    padding: 0 30px 30px 30px;
+    &__row {
+        width: 100%;
+        min-height: 70px;
+        position: relative;
+        margin-top: 20px;
+    }
+    &__message {
+        color: #fff;
+        font-size: 1.8rem;
+        max-width: 500px;
+        &--own {
+            background-color: #00C8BE;
+            float: right;
+        }
+        &--other {
+            background-color: #0088A6;
+            float: left;
+        }
+        &__content {
+            margin: 10px;
+        }
+        
+        &__desc {
+            margin: 5px;
+            font-size: 12px;
+            float: right;
+            &--own {
+                float: right;
+            }
+            &--other {
+                float: left;
+            }
+        }
+    }
+}
+
+.file {
+    height: 40px;
+    width: 40px;
+    font-size: 1.5rem;
+    padding-top: 10px;
+    margin-left: 10px;
+    text-align: center;
+    overflow: hidden;
+    vertical-align: middle;
+    &--unknown {
+        background-color: #808080;
+        color: #fff;
+    }
+    &--js {
+        background-color: #d0ff00;
+        color: rgb(0, 0, 0);
+    }
+    &--html {
+        background-color: #ff7300;
+        color: rgb(0, 0, 0);
+    }
+}

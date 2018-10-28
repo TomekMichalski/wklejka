@@ -1,8 +1,11 @@
 @import "base/base";
 @import "base/typography";
 
-@import "components/logout.scss";
+@import "components/logout";
+
 
 @import "pages/error";
 @import "pages/login";
 @import "pages/rooms";
+@import "pages/chatroom";
+@import "components/channel";
