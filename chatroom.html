@@ -17,7 +17,9 @@
                 <p class="chatroom__time__date">5 październik 2018</p>
                 <p class="chatroom__time__clock">14:23</p>
             </div>
-            
+            <div class="chatroom__current-channel">
+                %Aktualny_pokój%
+            </div>
             <div class="channels">
                 <div class="channels__category" id="4ti">
                     <a class="channels__heading" href="#4ti">
@@ -43,43 +45,37 @@
             </div>
 
         </div>
-        <div class="chat">
-            <div class="chat__row">
-                <div class="chat__message chat__message--own">
-                    <div class="chat__message__content">
-                        Nisi in adipisicing irure Lorem aliquip deserunt fugiat eu.Nisi in adipisicing irure Lorem aliquip deserunt fugiat eu.Nisi in adipisicing irure Lorem aliquip deserunt fugiat eu.
-                    </div>
-                    <div class="chat__message__desc chat__message__desc--own">
-                        %imie% %nazwisko% %godzina%
-                    </div>
-                </div>
-            </div>
 
-            <div class="chat__row">
-                <div class="chat__message chat__message--other">
-                    <div class="chat__message__content">
-                        Nisi in adipisicing irure.
-                    </div>
-                    <div class="file file--js">
-                        JS
-                    </div>
-                    <div class="chat__message__desc chat__message__desc--other">
-                        %imie% %nazwisko% %godzina%
-                    </div>
-                </div>
-            </div>
+        <div class="chatbox">
 
-        </div>
-        <div class="chatroom__form">
-            <input type="file" name="file" id="file" class="chatroom__form__inputfile" />
-            <label for="file">
-                    <ion-icon class="chatroom__form__attach" name="attach"></ion-icon>
-            </label>
+                <div class="chatbox__chat chatbox__chat--friend">
+                    <p class="chatbox__message">What's up?</p>
+                    <p class="chatbox__author">Tomek 12:39</p>
+                </div>
+
             
-            <textarea maxlength="215" name="message" cols="30" rows="10" class="chatroom__form__message"></textarea>
-            <button class="chatroom__form__button">Wyślij</button>
+                <div class="chatbox__chat chatbox__chat--self">
+                    <p class="chatbox__message">Nothing really, you?</p>
+                    <p class="chatbox__author">Adrian 12:43</p>
+                </div>
+
+                <div class="chatbox__chat chatbox__chat--self">
+                    <p class="chatbox__message">Lorem occaecat anim ipsum ut est cillum esse magna aliqua cupidatat dolore in sunt.</p>
+                    <p class="chatbox__author">Adrian 12:43</p>
+                </div>
+
+        </div>
+        
+        <div class="chat-form">
+            <form>
+                <input type="text" placeholder="Napisz wiadomość!" class="chat-form__text" required>
+                <input type="submit" class="chat-form__submit">
+            </form>
         </div>
 
+    </div>
+    <div class="version-control">
+        v.0.1.3dev
     </div>
     <!-- <a href="index.html">
         <ion-icon class="logout" name="log-out"></ion-icon>

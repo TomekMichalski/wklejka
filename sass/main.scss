@@ -1,7 +1,9 @@
 @import "base/base";
 @import "base/typography";
+@import "base/variables";
 
 @import "components/logout";
+@import "components/version-control";
 
 
 @import "pages/error";

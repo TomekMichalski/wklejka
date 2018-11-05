@@ -32,134 +32,130 @@
             display: block;
         }
     }
-    
-    &__form {
-        width: calc(100% - 300px);
-        height: 100px;
-        background-color: #1C4F5A;
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        &__message {
-            resize: none;
-            width: 1000px;
-            height: calc(100% - 40px);
-            background-color: #0D262B;
-            position: absolute;
-            border: none;
-            margin: 20px 0 20px 100px;
-            font-size: 2rem;
-            color: #fff;
-            padding: 10px;
-        }
-        &__inputfile {
-            width: 0.1px;
-            height: 0.1px;
-            opacity: 0;
-            overflow: hidden;
-            position: absolute;
-            z-index: -1;
-            
-        }
-        &__attach {
-            font-size: 5rem;
-            color: #fff;
-            display: block;
-            position: absolute;
-            margin: 23px 0 30px 25px;
-            transform: rotate(30deg);
-            cursor: pointer;
-            transition: all .4s;
-            &:hover {
-                color: #00C8BE;
-                transform: rotate(20deg);
-            }
-            &--active {
-                color: #00C8BE;
-                transform: rotate(380deg);
-            }
-        }
-        &__button {
-            height: 60px;
-            width: 60px;
-            border: none;
-            background-color: #153941;
-            color: #fff;
-            position: absolute;
-            left: 1110px;
-            top: 20px;
-
-            cursor: pointer;
-
-            &:active {
-                transform: scale(0.95);
-            }
-        }
-    }
-}
-.chat {
-    width: calc(100% - 300px);
-    position: absolute;
-    right: 0;
-    height: calc(100% - 100px);
-    display: flex;
-    flex-direction: column-reverse;
-    padding: 0 30px 30px 30px;
-    &__row {
-        width: 100%;
-        min-height: 70px;
-        position: relative;
-        margin-top: 20px;
-    }
-    &__message {
+    &__current-channel {
+        background-color: #1F5754;
         color: #fff;
         font-size: 1.8rem;
-        max-width: 500px;
-        &--own {
-            background-color: #00C8BE;
-            float: right;
-        }
-        &--other {
-            background-color: #0088A6;
-            float: left;
-        }
-        &__content {
-            margin: 10px;
-        }
-        
-        &__desc {
-            margin: 5px;
-            font-size: 12px;
-            float: right;
-            &--own {
-                float: right;
-            }
-            &--other {
-                float: left;
-            }
-        }
+        display: block;
+        width: auto;
+        text-align: center;
+        margin: 30px 15px 0 15px;
+        padding: 1px 5px 0 5px;
     }
 }
 
-.file {
-    height: 40px;
-    width: 40px;
-    font-size: 1.5rem;
-    padding-top: 10px;
-    margin-left: 10px;
-    text-align: center;
+.chatbox {
+    width: calc(100vw - 300px);
+    height: calc(100vh - 100px);
+    margin: 0 0 100px 300px;
     overflow: hidden;
-    vertical-align: middle;
-    &--unknown {
-        background-color: #808080;
+    position: relative;
+    font-family: 'lato', sans-serif;
+    padding: 10px;
+    overflow-x: hidden;
+    overflow-y: scroll; 
+
+    &__chat {
+        display: flex;
+        flex-flow: row wrap;
+        align-items:  flex-start;
+        margin-bottom: 15px;
+        position: relative;
+
+        &--self {
+            flex-direction: row-reverse;
+        }
+
+        &--self .chatbox__message {
+            background-color: #1ddced;
+        }
+
+        &--self .chatbox__author{
+            right: 14px;
+        }
+        
+        &--friend .chatbox__message {
+            background-color: #1adda4;
+        }
+
+        &--friend .chatbox__author {  
+            left: 14px;
+        }
+
+    }
+    &__message {
+        width: auto;
+        min-width: 200px;
+        max-width: 50%;
+        padding: 15px;
+        margin: 0px 10px 0;
+        border-radius: 4px;
         color: #fff;
+        font-size: 20px;
+        word-wrap: break-word;
     }
-    &--js {
-        background-color: #d0ff00;
-        color: rgb(0, 0, 0);
+    &__author {
+        position: absolute;
+        bottom: -15px;
+        color: #fff;
+        font-size: 12px;
+        white-space:nowrap;
     }
-    &--html {
-        background-color: #ff7300;
-        color: rgb(0, 0, 0);
+    &::-webkit-scrollbar {
+        width: 10px;
+    }
+    &::-webkit-scrollbar-thumb {
+        border-radius: 5px;
+        background-color: darken(#1ddced, 30%)
+    }
+}
+.chat-form {
+    bottom: 0;
+    right: 0;
+    height: 100px;
+    width: calc(100% - 300px);
+    position: absolute;
+    background-color: $first-color;
+    padding: 30px 15px;
+    & form {
+        position: absolute;
+        height: 40px;
+        width: calc(100% - 30px);
+    }
+    
+    &__submit {
+        margin-left: 20px;
+        background-color: $third-color;
+        color: #fff;
+        font-weight: 600;
+        text-transform: uppercase;
+        border: none;
+        height: 40px;
+        width: auto;
+        padding: 10px;
+        transition: all .2s;
+        cursor: pointer;
+        &:active {
+            transform: scale(.98);
+        }
+    }
+
+    &__text {
+        height: 100%;
+        background-color: $background-color;
+        color: #fff;
+        font-size: 18px;
+        border: none;
+        padding: 10px;
+        width: 40%;
+        min-width: 250px;
+        resize: none;
+        &::placeholder {
+            color: #979797;
+        }
+
+        &:placeholder-shown + .chat-form__submit{
+            background-color: #7c7c7c;
+        }
     }
 }
