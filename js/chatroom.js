@@ -46,3 +46,32 @@ var showDate = () => {
 // wywołaj funkcje po załadowaniu
 showHour();
 showDate();
+
+
+( function ( document, window, index )
+{
+	var inputs = document.querySelectorAll('.file-form__file-button');
+	Array.prototype.forEach.call( inputs, function( input )
+	{
+		var label	 = document.querySelector('.file-form__file-submit'),
+			labelVal = label.innerHTML;
+
+		input.addEventListener( 'change', function( event )
+		{
+			var fileName = '';
+			if( this.files && this.files.length > 1 )
+				fileName = ( this.getAttribute( 'data-multiple-caption' ) || '' ).replace( '{count}', this.files.length );
+			else
+				fileName = event.target.value.split( '\\' ).pop();
+
+			if( fileName )
+				label.innerHTML = fileName;
+			else
+				label.innerHTML = labelVal;
+		});
+
+		// Firefox bug fix
+		input.addEventListener( 'focus', function(){ input.classList.add( 'has-focus' ); });
+		input.addEventListener( 'blur', function(){ input.classList.remove( 'has-focus' ); });
+	});
+}( document, window, 0 ));

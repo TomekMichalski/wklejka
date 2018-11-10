@@ -1,0 +1,188 @@
+.file-browser {
+    width: calc(100vw - 300px);
+    height: calc(100vh - 100px);
+    margin: 0 0 100px 300px;
+    overflow: hidden;
+    position: relative;
+    font-family: 'lato', sans-serif;
+    padding: 25px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    flex-wrap: wrap;
+    align-self: flex-start;
+    display: flex;
+
+    &::-webkit-scrollbar {
+        width: 10px;
+    }
+    &::-webkit-scrollbar-thumb {
+        border-radius: 5px;
+        background-color: darken(#1ddced, 30%)
+    }
+
+    &__card {
+        height: 150px;
+        width: 300px;
+        background-color: $first-color;
+        margin-right: 40px;
+        margin-bottom: 30px;
+        -webkit-box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.5);
+        -moz-box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.5);
+        box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.5);
+        position: relative;
+        
+        &__background {
+            position: absolute;
+            top: 15px;
+            font-size: 120px;
+            &--js{
+                color: #ffff00;
+            }
+            &--cpp{
+                color: #0089c9;
+            }
+            &--js{
+                color: yellow;
+            }
+            &--js{
+                color: yellow;
+            }
+        }
+        &__filetype {  
+            position: absolute;
+            width: 90px;
+            height: 120px;
+            font-size: 25px;
+            font-weight: 600;
+            display: flex;
+            justify-content:flex-end;
+            &__span {
+                align-self: flex-end;
+                &--js {
+                    color: #000;
+                }
+                &--cpp {
+                    color: #fff;
+                }
+            }
+            
+        }
+
+        &__info {
+            width: 170px;
+            position: relative;
+            height: 150px;
+
+            float: right;
+            &__name {
+                font-size: 20px;
+                color: #fff;
+                margin-top: 30px;
+                display: block;
+            }
+            &__size {
+                margin-top: 15px;
+                display: block;
+                font-size: 14px;
+                color: #fff;
+            }
+            &__author {
+                margin-top: 15px;
+                display: block;
+                font-size: 14px;
+                color: #fff;
+            }
+        }
+    }
+}
+.file-form {
+    bottom: 0;
+    right: 0;
+    height: 100px;
+    width: calc(100% - 300px);
+    position: absolute;
+    background-color: $first-color;
+    padding: 30px 15px;
+
+    & form {
+        position: absolute;
+        height: 40px;
+        width: calc(100% - 30px);
+        white-space: nowrap;
+    }
+    &__file-button {
+        width: 0.1px;
+        height: 0.1px;
+        opacity: 0;
+        overflow: hidden;
+        position: absolute;
+        z-index: -1;
+    }
+    &__file-submit {
+        width: auto;
+        height: 40px;
+        font-size: 20px;
+        font-weight: 400;
+        padding: 5px;
+        color: white;
+        background-color: #00b7ff;
+        display: inline-block;
+        cursor: pointer;
+        & ion-icon {
+            font-size: 30px;
+            position: absolute;
+            top: 3px;
+        }
+    }
+    &__submit {
+        position: absolute;
+
+        margin: 0;
+        margin-left: 20px;
+        height: 40px;
+        width: auto;
+        padding: 10px;
+        border: none;
+
+        font-size: 18px;
+        background-color: $third-color;
+        color: #fff;
+        font-weight: 400;
+        text-transform: uppercase;
+        transition: all .2s;
+        cursor: pointer;
+        
+        &:active {
+            transform: scale(.98);
+        }
+
+        @media only screen and (max-width: 1000px) {
+            margin-left: 320px;
+        }
+    }
+
+    &__switch {
+        position: absolute;
+
+        width: auto;
+        height: 40px;
+
+        font-size: 30px;
+        padding: 5px;
+        background-color: $second-color;
+        color: #fff;
+
+        cursor: pointer;
+        border: 0;
+        right: 30px;
+
+        &:active {
+            transform: scale(.98);
+        }
+    }
+}
+
+label {
+    width: 100px;
+    height: 200px;
+}

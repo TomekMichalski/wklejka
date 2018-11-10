@@ -46,7 +46,7 @@
 
         </div>
 
-        <div class="chatbox">
+        <!-- <div class="chatbox">
 
                 <div class="chatbox__chat chatbox__chat--friend">
                     <p class="chatbox__message">What's up?</p>
@@ -64,23 +64,69 @@
                     <p class="chatbox__author">Adrian 12:43</p>
                 </div>
 
-        </div>
+        </div> -->
         
-        <div class="chat-form">
+        <div class="file-browser">
+            <div class="file-browser__card"> 
+                <ion-icon class="file-browser__card__background file-browser__card__background--js" name="document"></ion-icon>
+                <div class="file-browser__card__filetype">
+                    <span class="file-browser__card__filetype__span file-browser__card__filetype__span--js">JS</span> 
+                </div>
+                <div class="file-browser__card__info">
+                    <span class="file-browser__card__info__name">Zadanie 3.js</span> 
+                    <span class="file-browser__card__info__size">Waga: 0.5mb</span> 
+                    <span class="file-browser__card__info__author">Autor: Adrian Osica</span> 
+                </div>
+            </div>
+            <div class="file-browser__card"> 
+                <ion-icon class="file-browser__card__background file-browser__card__background--cpp" name="document"></ion-icon>
+                <div class="file-browser__card__filetype">
+                    <span class="file-browser__card__filetype__span file-browser__card__filetype__span--cpp">CPP</span> 
+                </div>
+                <div class="file-browser__card__info">
+                    <span class="file-browser__card__info__name">Zadanie 1.cpp</span> 
+                    <span class="file-browser__card__info__size">Waga: 0.2mb</span> 
+                    <span class="file-browser__card__info__author">Autor: Tomek Michalski</span> 
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="chat-form">
             <form>
                 <input type="text" placeholder="Napisz wiadomość!" class="chat-form__text" required>
                 <input type="submit" class="chat-form__submit">
+                
             </form>
-        </div>
+            <button class="chat-form__switch">
+                <ion-icon name="copy" ></ion-icon>
+                <ion-icon name="arrow-forward"></ion-icon>
+            </button>
+            
+        </div> -->
 
+        <div class="file-form">
+            <form>
+                <input type="file" name="file" id="submit_file" class="file-form__file-button" data-multiple-caption="{count} files selected" multiple>
+                <label for="submit_file" class="file-form__file-submit">
+                    <ion-icon name="cloud-upload" ></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Prześlij plik 
+                </label>
+                <input type="submit" class="file-form__submit">
+            </form>
+
+            <button class="file-form__switch">
+                <ion-icon name="chatboxes" ></ion-icon>
+                <ion-icon name="arrow-forward"></ion-icon>
+            </button>
+            
+        </div>
     </div>
     <div class="version-control">
-        v.0.1.3dev
+        v.0.1.5alpha
     </div>
     <!-- <a href="index.html">
         <ion-icon class="logout" name="log-out"></ion-icon>
     </a> -->
-    
+    <script>(function(e,t,n){var r=e.querySelectorAll("html")[0];r.className=r.className.replace(/(^|\s)no-js(\s|$)/,"$1js$2")})(document,window,0);</script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://unpkg.com/ionicons@4.2.2/dist/ionicons.js"></script>
     <script src="js/chatroom.js"></script>
