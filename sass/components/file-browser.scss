@@ -77,17 +77,23 @@
             &__name {
                 font-size: 20px;
                 color: #fff;
-                margin-top: 30px;
+                margin-top: 20px;
                 display: block;
             }
             &__size {
-                margin-top: 15px;
+                margin-top: 10px;
                 display: block;
                 font-size: 14px;
                 color: #fff;
             }
             &__author {
-                margin-top: 15px;
+                margin-top: 10px;
+                display: block;
+                font-size: 14px;
+                color: #fff;
+            }
+            &__date{
+                margin-top: 10px;
                 display: block;
                 font-size: 14px;
                 color: #fff;

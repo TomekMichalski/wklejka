@@ -256,15 +256,20 @@ body, html {
       .file-browser__card__info__name {
         font-size: 20px;
         color: #fff;
-        margin-top: 30px;
+        margin-top: 20px;
         display: block; }
       .file-browser__card__info__size {
-        margin-top: 15px;
+        margin-top: 10px;
         display: block;
         font-size: 14px;
         color: #fff; }
       .file-browser__card__info__author {
-        margin-top: 15px;
+        margin-top: 10px;
+        display: block;
+        font-size: 14px;
+        color: #fff; }
+      .file-browser__card__info__date {
+        margin-top: 10px;
         display: block;
         font-size: 14px;
         color: #fff; }
@@ -483,6 +488,14 @@ label {
         position: absolute;
         bottom: 115px;
         left: 78px; } }
+  .login__incorrect-data {
+    position: absolute;
+    bottom: 50px;
+    font-size: 2.4rem;
+    color: #ff0000;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none; }
 
 .rooms {
   width: 800px;
