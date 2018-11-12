@@ -65,15 +65,18 @@ body, html {
     font-size: 3.6rem; }
 
 .logout {
-  font-size: 6rem;
   color: #fff;
   background-color: #008C95;
   position: absolute;
-  padding: 10px;
+  padding: 3px;
   bottom: 100px;
-  right: 100px;
   cursor: pointer;
-  transition: all .2s; }
+  transition: all .2s;
+  height: 35px;
+  width: 35px;
+  bottom: 20px;
+  left: 140px;
+  font-size: 30px; }
   .logout:active {
     transform: scale(0.95);
     background-color: #00747c; }
