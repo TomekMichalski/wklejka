@@ -35,6 +35,22 @@
         &--friend .chatbox__author {  
             left: 14px;
         }
+        
+        &--admin .chatbox__message {
+            background-color: #961add;
+        }
+
+        &--admin .chatbox__author {  
+            left: 14px;
+        }
+
+        &--system .chatbox__message {
+            background-color: #961add;
+        }
+
+        &--system .chatbox__author {  
+            left: 14px;
+        }
 
     }
     &__message {
@@ -83,7 +99,7 @@
         height: 40px;
         width: 45%;
         min-width: 300px;
-
+        resize: none;
         position: absolute;
         padding: 10px;
         border: none;
@@ -91,6 +107,9 @@
         color: #fff;
         background-color: $background-color;
 
+        &::-webkit-scrollbar {
+            display: none;
+        }
         &::placeholder {
             color: #979797;
         }

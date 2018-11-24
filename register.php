@@ -25,12 +25,11 @@
 						exit;
 					
 					}else{
-						echo 'Gratulacje twoje konto zostalo zweryfikowane. <br /> Dostaniesz wiadomosc email, gdy wklejka zostanie uruchomiona.';
+						echo 'Gratulacje twoje konto zostalo zweryfikowane.';
 						exit;
 						
 					}
-			
-				
+	
 			}
 			
 			if(!isset($school)&&$stmt->rowCount()==0){

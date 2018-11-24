@@ -164,5 +164,12 @@
             left: 78px;
         }
     }
-    
+    &__incorrect-data {
+        position: absolute;
+        bottom: 50px;
+        font-size: 2.4rem;
+        color: #ff0000;
+        left: 50%;
+        transform: translateX(-50%);
+    }
 }
