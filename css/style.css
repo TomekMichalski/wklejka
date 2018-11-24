@@ -114,6 +114,14 @@ body, html {
       background-color: #1adda4; }
     .chatbox__chat--friend .chatbox__author {
       left: 14px; }
+    .chatbox__chat--admin .chatbox__message {
+      background-color: #961add; }
+    .chatbox__chat--admin .chatbox__author {
+      left: 14px; }
+    .chatbox__chat--system .chatbox__message {
+      background-color: #961add; }
+    .chatbox__chat--system .chatbox__author {
+      left: 14px; }
   .chatbox__message {
     width: auto;
     min-width: 200px;
@@ -153,12 +161,15 @@ body, html {
     height: 40px;
     width: 45%;
     min-width: 300px;
+    resize: none;
     position: absolute;
     padding: 10px;
     border: none;
     font-size: 20px;
     color: #fff;
     background-color: #343838; }
+    .chat-form__text::-webkit-scrollbar {
+      display: none; }
     .chat-form__text::placeholder {
       color: #979797; }
     .chat-form__text:placeholder-shown + .chat-form__submit {
@@ -231,12 +242,26 @@ body, html {
       font-size: 120px; }
       .file-browser__card__background--js {
         color: #ffff00; }
-      .file-browser__card__background--cpp {
+      .file-browser__card__background--cpp, .file-browser__card__background--docx, .file-browser__card__background--doc, .file-browser__card__background--exc {
         color: #0089c9; }
-      .file-browser__card__background--js {
-        color: yellow; }
-      .file-browser__card__background--js {
-        color: yellow; }
+      .file-browser__card__background--jpg, .file-browser__card__background--png, .file-browser__card__background--sql {
+        color: #af7800; }
+      .file-browser__card__background--accdb, .file-browser__card__background--zip, .file-browser__card__background--rar {
+        color: #6900be; }
+      .file-browser__card__background--xlsx, .file-browser__card__background--xlsm, .file-browser__card__background--xlsm, .file-browser__card__background--xlsb, .file-browser__card__background--xltx, .file-browser__card__background--xltm, .file-browser__card__background--xls {
+        color: #00a008; }
+      .file-browser__card__background--ppsx, .file-browser__card__background--ppsm {
+        color: #ff7300; }
+      .file-browser__card__background--txt {
+        color: #575757; }
+      .file-browser__card__background--pdf {
+        color: #c00000; }
+      .file-browser__card__background--html {
+        color: #c94000; }
+      .file-browser__card__background--css {
+        color: #00b7ff; }
+      .file-browser__card__background--zgs {
+        color: #0044ff; }
     .file-browser__card__filetype {
       position: absolute;
       width: 90px;
@@ -249,8 +274,10 @@ body, html {
         align-self: flex-end; }
         .file-browser__card__filetype__span--js {
           color: #000; }
-        .file-browser__card__filetype__span--cpp {
+        .file-browser__card__filetype__span--cpp, .file-browser__card__filetype__span--jpg, .file-browser__card__filetype__span--png, .file-browser__card__filetype__span--png, .file-browser__card__filetype__span--png, .file-browser__card__filetype__span--png, .file-browser__card__filetype__span--png, .file-browser__card__filetype__span--png, .file-browser__card__filetype__span--sql, .file-browser__card__filetype__span--accdb, .file-browser__card__filetype__span--sql, .file-browser__card__filetype__span--sql, .file-browser__card__filetype__span--sql, .file-browser__card__filetype__span--xlsx, .file-browser__card__filetype__span--xlsm, .file-browser__card__filetype__span--xlsm, .file-browser__card__filetype__span--xlsb, .file-browser__card__filetype__span--xltx, .file-browser__card__filetype__span--xltm, .file-browser__card__filetype__span--xls, .file-browser__card__filetype__span--ppsx, .file-browser__card__filetype__span--ppsm, .file-browser__card__filetype__span--docx, .file-browser__card__filetype__span--doc, .file-browser__card__filetype__span--txt, .file-browser__card__filetype__span--pdf, .file-browser__card__filetype__span--zip, .file-browser__card__filetype__span--rar, .file-browser__card__filetype__span--css, .file-browser__card__filetype__span--html {
           color: #fff; }
+        .file-browser__card__filetype__span--zgs {
+          color: #ff0000; }
     .file-browser__card__info {
       width: 170px;
       position: relative;

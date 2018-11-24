@@ -37,7 +37,7 @@ if(isset($_POST['login'])){
 		
 	}	
 	else {
-		$error = ' <p class="login__incorrect-data">Nieprawidłowe hasło lub login!</p>';
+		$error = '<p class="login__incorrect-data">Nieprawidłowe hasło lub login!</p>';
 	}
 	
 }

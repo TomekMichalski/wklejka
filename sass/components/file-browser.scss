@@ -30,7 +30,6 @@
         -moz-box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.5);
         box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.5);
         position: relative;
-        
         &__background {
             position: absolute;
             top: 15px;
@@ -38,14 +37,35 @@
             &--js{
                 color: #ffff00;
             }
-            &--cpp{
+            &--cpp, &--docx, &--doc, &--exc{
                 color: #0089c9;
             }
-            &--js{
-                color: yellow;
+            &--jpg, &--png, &--sql{
+                color: #af7800;
             }
-            &--js{
-                color: yellow;
+            &--accdb, &--zip, &--rar{
+                color: #6900be;
+            }
+            &--xlsx, &--xlsm, &--xlsm, &--xlsb, &--xltx, &--xltm, &--xls{
+                color: #00a008;
+            }
+            &--ppsx, &--ppsm{
+                color: #ff7300;
+            }
+            &--txt{
+                color: #575757;
+            }
+            &--pdf{
+                color: #c00000;
+            }
+            &--html{
+                color: #c94000;
+            }
+            &--css{
+                color: #00b7ff;
+            }
+            &--zgs{
+                color: #0044ff;
             }
         }
         &__filetype {  
@@ -61,8 +81,11 @@
                 &--js {
                     color: #000;
                 }
-                &--cpp {
+                &--cpp, &--jpg, &--png, &--png, &--png, &--png, &--png, &--png, &--sql, &--accdb, &--sql, &--sql, &--sql, &--xlsx, &--xlsm, &--xlsm, &--xlsb, &--xltx, &--xltm, &--xls, &--ppsx, &--ppsm,  &--docx, &--doc, &--txt, &--pdf, &--zip, &--rar, &--css, &--html {
                     color: #fff;
+                }
+                &--zgs {
+                    color: #ff0000;
                 }
             }
             
@@ -77,17 +100,23 @@
             &__name {
                 font-size: 20px;
                 color: #fff;
-                margin-top: 30px;
+                margin-top: 20px;
                 display: block;
             }
             &__size {
-                margin-top: 15px;
+                margin-top: 10px;
                 display: block;
                 font-size: 14px;
                 color: #fff;
             }
             &__author {
-                margin-top: 15px;
+                margin-top: 10px;
+                display: block;
+                font-size: 14px;
+                color: #fff;
+            }
+            &__date{
+                margin-top: 10px;
                 display: block;
                 font-size: 14px;
                 color: #fff;
