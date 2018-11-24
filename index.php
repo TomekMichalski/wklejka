@@ -27,6 +27,7 @@ if(isset($_POST['login'])){
 		$_SESSION['surname']=$result[0]['surname'];
 		$_SESSION['school']=$result[0]['school'];
 		$_SESSION['class']=$result[0]['class'];
+		$_SESSION['admin']=$result[0]['admin'];
 		$_SESSION['room']='global';
 		$_SESSION['switch']='chat';
 		
