@@ -102,7 +102,7 @@
 				
 				
 				if($_SESSION['switch']=="chat") {
-					echo '<div class="chatbox" id="chat" ></div>
+					echo '<div class="chatbox" id="chat"></div>
 					<div class="chat-form">
 						<form id="add_text" >
 							<textarea placeholder="Napisz wiadomość!" class="chat-form__text" id="tresc" name="message" required></textarea>
@@ -143,7 +143,7 @@
 		<script>	
 		
 			$( "#add_text" ).on('submit', function(e) {
-								
+				
 				var selector = (typeof($(this).attr('id')) !== 'undefined' || $(this).attr('id') !== null) ? '#' + $(this).attr('id') :  '.' + $(this).attr('class');
 				$(selector +" button").prop('disabled', true);
 				$(selector +" .loading_dot" ).show(500);
@@ -162,7 +162,7 @@
 					if(received.type=='success'){
 						$(':input[id=tresc]').val('');		
 						$(':input[id=submit_file]').val('');		
-						
+						setScrollToBottom();
 					}
 					else{
 						alert(received);					
@@ -185,18 +185,18 @@
 				var liczenie = document.getElementById('<?=$_SESSION['switch']  ?>');
 				var finish = liczenie.getElementsByTagName('div');
 			
-				
 				if(query("<?=$_SESSION['switch']  ?>_count")!=finish.length||document.getElementById('<?=$_SESSION['switch']  ?>').innerHTML==''){
 
 					var data= query("<?=$_SESSION['switch']  ?>");
 					document.getElementById('<?=$_SESSION['switch']  ?>').innerHTML='';
-					
+				
 					for(var i=0 ; i < data.length; i++){
 						
 						comments.append(data[i]['text']);
 
 					}
-				
+					
+					
 				}
 				
 		

@@ -75,3 +75,17 @@ showDate();
 		input.addEventListener( 'blur', function(){ input.classList.remove( 'has-focus' ); });
 	});
 }( document, window, 0 ));
+const chatbox = document.querySelector(".chatbox");
+
+setTimeout(()=>{ chatbox.scrollTop = chatbox.scrollHeight} , 100); //po załadowaniu scrolluj na dół chatboxa
+
+ 
+var scrollToBottom = () => { 
+  setTimeout(() => {
+    if (chatbox.scrollHeight >= (chatbox.scrollTop + chatbox.offsetHeight) && (chatbox.scrollTop + chatbox.offsetHeight) >= (chatbox.scrollHeight - 300)) { //jeżeli jestes 500px od dołu to przenieś na sam dół,
+      chatbox.scrollTop = chatbox.scrollHeight; //rzenieś na sam dół
+    }
+    scrollToBottom(); //wywoływana rekurencyjnie
+  }, 1000); //co sekunde:  
+};
+scrollToBottom(); //wywołaj ją na starcie
