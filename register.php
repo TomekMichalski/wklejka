@@ -41,7 +41,7 @@
 			if(!isset($school)&&$stmt->rowCount()==0){
 				
 				echo 'Nieprawidlowy kod.<br /> Za chwile zostaniesz przekierowany na strone glowna.';
-				header("refresh:5;url=https://zonegames.pl/wklej/wklejka");
+				header("refresh:5;url=https://zonegames.pl/wklejka");
 				exit;
 				
 			}

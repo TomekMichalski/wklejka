@@ -1,8 +1,9 @@
 <div class="directPaste">
     <div class="directPaste__container">
-        <form action="#">
+        <form action="" method="POST" >
             <h1 class="directPaste__heading">Wklej swój kod!</h1>
-            <textarea class="directPaste__input" name="" id="" placeholder="console.log('Hello world!');"></textarea>
+            <input type="text" maxlength="30" name="topic" placeholder="Wpisz temat" /><br />
+            <textarea class="directPaste__input" name="paste" id="" placeholder="console.log('Hello world!');"></textarea>
             <button type="submit" class="directPaste__submit">Wyślij</button>
         </form>
     </div>

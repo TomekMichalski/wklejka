@@ -8,6 +8,25 @@
 		header('Refresh:0');
 	}
 	
+
+	if(isset($_POST['paste'])&&strlen($_POST['topic'])<=30){
+
+		$text=addslashes($_POST['paste']);
+		$topic=htmlspecialchars($_POST['topic'],ENT_QUOTES,"UTF-8");
+	
+		$ourFileName = $topic.'-'.next_id('file');
+		$ourFileHandle = fopen('files/'.$ourFileName.'.zgs', 'w') or die("can't open file");
+		fwrite($ourFileHandle, $text);
+		$filesize=filesize('files/'.$ourFileName.'.zgs');
+		fclose($ourFileHandle);
+		$pdo->query("INSERT INTO file (`id_author`,`file`,`filename`,`size`,`time`,`school`,`class`,`room`) VALUES ('".$_SESSION['id']."','".$ourFileName.".zgs','".$topic."','$filesize','".date("d.m")."','".$_SESSION['school']."','".$_SESSION['class']."','".$_SESSION['room']."'  ) ");
+		$pdo->query("INSERT INTO chat (`id_author`,`text`,`time`,`school`,`class`,`room`) VALUES ('-1','".$user->user_info()[0]." ".$user->user_info()[1]." dodał nowy plik (wewnętrzny) ','".date("H:i")."','".$_SESSION['school']."','".$_SESSION['class']."','".$_SESSION['room']."'  ) ");
+
+		header('Refresh:0');
+
+
+	}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -105,8 +124,8 @@
 					echo '<div class="chatbox" id="chat"></div>
 					<div class="chat-form">
 						<form id="add_text" >
-							<textarea placeholder="Napisz wiadomość!" class="chat-form__text" id="tresc" name="message" required></textarea>
-							<!-- <input type="text" placeholder="Napisz wiadomość!" class="chat-form__text" id="tresc" name="message" required> -->
+						<!-- <textarea placeholder="Napisz wiadomość!" class="chat-form__text" id="tresc" name="message" required></textarea> -->
+							 <input type="text" placeholder="Napisz wiadomość!" class="chat-form__text" id="tresc" name="message" required> 
 							<input type="submit" class="chat-form__submit">
 						</form>
 					'.$switch_type.'
@@ -119,9 +138,9 @@
 					<label for="submit_file" class="file-form__file-submit">
 						<ion-icon name="cloud-upload" ></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Prześlij plik 
 					</label>
-					<button class="file-form__directInput">Direct</button>
+					<button  name="direct" class="file-form__directInput">Direct (BETA) </button>
 					<input type="submit" class="file-form__submit">
-				</form>
+					</form>
 
 				<a href="chatroom.php"'." onclick='query({$cudzyslow}chat_switch{$cudzyslow})';  ".'><button class="file-form__switch">
 					<ion-icon name="chatboxes" ></ion-icon>
@@ -131,7 +150,7 @@
 			?>
 		</div>
 		<div class="version-control">
-			v.0.2beta
+			v.0.3beta
 		</div>
 		<div class="logout" onclick='query("logout");location.reload();' title="Wyloguj się">
 			<ion-icon name="log-out"></ion-icon>
@@ -151,6 +170,7 @@
 				e.preventDefault();
 				
 				var form = new FormData($("#add_text")[0]);	
+			
 				$.ajax({
 					
 					url: 'classes/ajax.php',

@@ -2,8 +2,19 @@
 	require_once('classes/db.php');
 	require_once('classes/class.php');
 	
+	if($_GET['action']=='logout'&&isset($_SESSION['id'])){
+
+		$sql = $pdo->query("UPDATE users SET logout=1 WHERE id='".$_SESSION['id']."'  ");
+		session_destroy();
+		header('Refresh:0');
+
+	}
+
 	check_login('chatroom.php',true);
 	
+	
+
+
 	if(isset($_POST['email'])){
 		
 		

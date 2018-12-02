@@ -17,24 +17,25 @@ if(isset($_POST['login'])){
 	//$sql = "SELECT * FROM users WHERE nick=? AND password=? ";
 	//$query = $pdo->prepare($sql);
 	$query=$pdo->query("SELECT * FROM users WHERE nick='$login' OR email='$login' ");
-	$result = $query->fetchAll();
+	$result = $query->fetch();
 	
-	if($query->rowCount() == 1 && password_verify($password, $result[0]['password']) ) {
+	if($query->rowCount() == 1 && password_verify($password, $result['password']) ) {
 
-		$time=round((strtotime(date("Y-m-d H:i"))-strtotime($result[0]['last_login']))); 
+		$time=round((strtotime(date("Y-m-d H:i"))-strtotime($result['last_login']))); 
 
-		if($time<60&&!$result[0]['logout']){
+		if($time<60&&!$result['logout']){
 			$error = '<p class="login__incorrect-data">Aktualnie jest ktoś zalogowany na tym końcie!</p>';
+			send_email('Ostrzeżenie','Witaj  <b>'.$result['name'].' </b> <br/> Wykryliśmy podejrzane logowanie.<br /> Prosimy zmienić hasło <a href="https://zonegames.pl/wklejka/forgot_pass.php?action=logout">Tutaj</a> ',$result['email']);
 		}
 		else {
 
 			$_SESSION['logged']=true;
-			$_SESSION['id']=$result[0]['id'];
-			$_SESSION['name']=$result[0]['name'];
-			$_SESSION['surname']=$result[0]['surname'];
-			$_SESSION['school']=$result[0]['school'];
-			$_SESSION['class']=$result[0]['class'];
-			$_SESSION['admin']=$result[0]['admin'];
+			$_SESSION['id']=$result['id'];
+			$_SESSION['name']=$result['name'];
+			$_SESSION['surname']=$result['surname'];
+			$_SESSION['school']=$result['school'];
+			$_SESSION['class']=$result['class'];
+			$_SESSION['admin']=$result['admin'];
 			$_SESSION['room']='global';
 			$_SESSION['switch']='chat';
 			
