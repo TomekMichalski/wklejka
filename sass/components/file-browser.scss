@@ -163,6 +163,23 @@
             top: 3px;
         }
     }
+    &__directInput {
+        position: absolute;
+        margin: 0;
+        margin-left: 145px;
+        height: 40px;
+        width: auto;
+        padding: 10px;
+        border: none;
+
+        font-size: 18px;
+        background-color: $third-color;
+        color: #fff;
+        font-weight: 400;
+        text-transform: uppercase;
+        transition: all .2s;
+        cursor: pointer;
+    }
     &__submit {
         position: absolute;
 

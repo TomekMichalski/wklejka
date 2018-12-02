@@ -52,7 +52,7 @@
 		</script>
 		
 	</head>
-	<body class="body body--chatroom">
+	<body class="body body--chatroom"   >
 		<div class="chatroom">
 			<div class="chatroom__left">
 				<div class="chatroom__time">
@@ -119,6 +119,7 @@
 					<label for="submit_file" class="file-form__file-submit">
 						<ion-icon name="cloud-upload" ></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Prześlij plik 
 					</label>
+					<button class="file-form__directInput">Direct</button>
 					<input type="submit" class="file-form__submit">
 				</form>
 
@@ -135,7 +136,7 @@
 		<div class="logout" onclick='query("logout");location.reload();' title="Wyloguj się">
 			<ion-icon name="log-out"></ion-icon>
 		</div>
-		
+		<?php include("directPaste.php") ?>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://unpkg.com/ionicons@4.2.2/dist/ionicons.js"></script>
 		<script src="js/chatroom.js"></script>
@@ -204,6 +205,7 @@
 			
 			add_chat();
 			setInterval('add_chat()',1e3);
+			setInterval('query("check_login")',60 * 1000);
 			
 		</script>
 		

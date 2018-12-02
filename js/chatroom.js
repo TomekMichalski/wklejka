@@ -89,3 +89,17 @@ var scrollToBottom = () => {
   }, 1000); //co sekunde:  
 };
 scrollToBottom(); //wywołaj ją na starcie
+
+
+//directInput pokazywanie i chowanie
+const directPaste = document.querySelector('.directPaste');
+const showButton = document.querySelector('.file-form__directInput');
+
+showButton.addEventListener('click', ()=> {
+  directPaste.style.display = "block";
+})
+directPaste.addEventListener('click', (event)=> {
+  if(event.path[0]==directPaste) {
+    directPaste.style.display = "none";
+  }
+})

@@ -6,6 +6,12 @@
 					$school='Mechanik';
 					$class='4Ti';
 			}
+
+			if($_GET['hash']=='76vbsudbv2736432'){
+				$school='ZSP';
+				$class='3Ti';
+			}
+
 			
 			if($_COOKIE["IP"]=='')
 				$_COOKIE["IP"]='empty';

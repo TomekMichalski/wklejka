@@ -20,22 +20,30 @@ if(isset($_POST['login'])){
 	$result = $query->fetchAll();
 	
 	if($query->rowCount() == 1 && password_verify($password, $result[0]['password']) ) {
-		
-		$_SESSION['logged']=true;
-		$_SESSION['id']=$result[0]['id'];
-		$_SESSION['name']=$result[0]['name'];
-		$_SESSION['surname']=$result[0]['surname'];
-		$_SESSION['school']=$result[0]['school'];
-		$_SESSION['class']=$result[0]['class'];
-		$_SESSION['admin']=$result[0]['admin'];
-		$_SESSION['room']='global';
-		$_SESSION['switch']='chat';
-		
-		$pdo->query("UPDATE users SET last_login='".date("Y-m-d H:i")."' , last_ip='".$_SERVER['REMOTE_ADDR']."' WHERE id='".$_SESSION['id']."' ");
-		
-		unset($error);
-		header('Location:chatroom.php');
-		
+
+		$time=round((strtotime(date("Y-m-d H:i"))-strtotime($result[0]['last_login']))); 
+
+		if($time<60&&!$result[0]['logout']){
+			$error = '<p class="login__incorrect-data">Aktualnie jest ktoś zalogowany na tym końcie!</p>';
+		}
+		else {
+
+			$_SESSION['logged']=true;
+			$_SESSION['id']=$result[0]['id'];
+			$_SESSION['name']=$result[0]['name'];
+			$_SESSION['surname']=$result[0]['surname'];
+			$_SESSION['school']=$result[0]['school'];
+			$_SESSION['class']=$result[0]['class'];
+			$_SESSION['admin']=$result[0]['admin'];
+			$_SESSION['room']='global';
+			$_SESSION['switch']='chat';
+			
+			$pdo->query("UPDATE users SET last_login='".date("Y-m-d H:i")."' , last_ip='".$_SERVER['REMOTE_ADDR']."', logout=0 WHERE id='".$_SESSION['id']."' ");
+			
+			unset($error);
+			header('Location:chatroom.php');
+		}	
+			
 	}	
 	else {
 		$error = '<p class="login__incorrect-data">Nieprawidłowe hasło lub login!</p>';

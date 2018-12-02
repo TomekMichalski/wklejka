@@ -1,3 +1,4 @@
+@import url("../base/variables.scss");
 *,
 *::after,
 *::before {
@@ -119,7 +120,7 @@ body, html {
     .chatbox__chat--admin .chatbox__author {
       left: 14px; }
     .chatbox__chat--system .chatbox__message {
-      background-color: #961add; }
+      background-color: #c4891c; }
     .chatbox__chat--system .chatbox__author {
       left: 14px; }
   .chatbox__message {
@@ -337,6 +338,21 @@ body, html {
       font-size: 30px;
       position: absolute;
       top: 3px; }
+  .file-form__directInput {
+    position: absolute;
+    margin: 0;
+    margin-left: 145px;
+    height: 40px;
+    width: auto;
+    padding: 10px;
+    border: none;
+    font-size: 18px;
+    background-color: #00dffc;
+    color: #fff;
+    font-weight: 400;
+    text-transform: uppercase;
+    transition: all .2s;
+    cursor: pointer; }
   .file-form__submit {
     position: absolute;
     margin: 0;
@@ -375,6 +391,57 @@ label {
   width: 100px;
   height: 200px; }
 
+.directPaste {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  transition: all .2s; }
+  .directPaste__container {
+    width: 700px;
+    height: 800px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #005f6b;
+    border-radius: 10px;
+    box-shadow: 0px 10px 10px -2px rgba(0, 0, 0, 0.5); }
+  .directPaste__heading {
+    font-size: 6rem;
+    color: #fff;
+    text-align: center;
+    margin-top: 2rem; }
+  .directPaste__input {
+    margin: 30px auto;
+    display: block;
+    width: 90%;
+    height: 650px;
+    resize: none;
+    padding: 10px;
+    font-size: 2rem;
+    color: #fff;
+    background-color: #343838;
+    border: none;
+    border-radius: 10px;
+    box-shadow: inset 0px 0px 15px 0px rgba(0, 0, 0, 0.5); }
+    .directPaste__input:placeholder-shown + .directPaste__submit {
+      display: none; }
+  .directPaste__submit {
+    position: absolute;
+    bottom: 28px;
+    right: 5%;
+    font-size: 2rem;
+    color: #fff;
+    background-color: #005f6b;
+    border: none;
+    padding: 10px;
+    border-radius: 10px 0 0 0;
+    cursor: pointer; }
+
 .error {
   position: absolute;
   height: 450px;
@@ -404,8 +471,6 @@ label {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  -webkit-box-shadow: 0px 10px 10px -2px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 0px 10px 10px -2px rgba(0, 0, 0, 0.5);
   box-shadow: 0px 10px 10px -2px rgba(0, 0, 0, 0.5); }
   .login__icon {
     color: #fff;
