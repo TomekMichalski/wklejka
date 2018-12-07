@@ -138,10 +138,9 @@
 					<label for="submit_file" class="file-form__file-submit">
 						<ion-icon name="cloud-upload" ></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Prześlij plik 
 					</label>
-					<button  name="direct" class="file-form__directInput">Direct (BETA) </button>
 					<input type="submit" class="file-form__submit">
 					</form>
-
+					<button  name="direct" class="file-form__directInput">Direct</button>
 				<a href="chatroom.php"'." onclick='query({$cudzyslow}chat_switch{$cudzyslow})';  ".'><button class="file-form__switch">
 					<ion-icon name="chatboxes" ></ion-icon>
 					<ion-icon name="arrow-forward"></ion-icon>
@@ -150,7 +149,7 @@
 			?>
 		</div>
 		<div class="version-control">
-			v.0.3beta
+			v.0.4.1beta
 		</div>
 		<div class="logout" onclick='query("logout");location.reload();' title="Wyloguj się">
 			<ion-icon name="log-out"></ion-icon>

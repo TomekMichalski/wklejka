@@ -341,7 +341,7 @@ body, html {
   .file-form__directInput {
     position: absolute;
     margin: 0;
-    margin-left: 145px;
+    margin-left: 300px;
     height: 40px;
     width: auto;
     padding: 10px;
@@ -401,8 +401,12 @@ label {
   display: none;
   transition: all .2s; }
   .directPaste__container {
-    width: 700px;
-    height: 800px;
+    width: 50%;
+    max-width: 700px;
+    min-width: 500px;
+    height: 80%;
+    max-height: 800px;
+    min-height: 700px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -414,13 +418,31 @@ label {
     font-size: 6rem;
     color: #fff;
     text-align: center;
-    margin-top: 2rem; }
-  .directPaste__input {
+    margin-top: 2rem;
+    word-wrap: break-word; }
+    @media only screen and (max-width: 1200px) {
+      .directPaste__heading {
+        font-size: 5rem; } }
+  .directPaste__topic {
+    padding: 10px;
+    font-size: 2rem;
+    color: #fff;
+    background-color: #343838;
+    border: none;
+    border-radius: 10px;
+    box-shadow: inset 0px 0px 15px 0px rgba(0, 0, 0, 0.5);
     margin: 30px auto;
     display: block;
+    width: 90%; }
+  .directPaste__input {
+    display: block;
+    position: absolute;
     width: 90%;
-    height: 650px;
+    height: 70%;
     resize: none;
+    left: 50%;
+    bottom: 20px;
+    transform: translateX(-50%);
     padding: 10px;
     font-size: 2rem;
     color: #fff;
@@ -432,7 +454,7 @@ label {
       display: none; }
   .directPaste__submit {
     position: absolute;
-    bottom: 28px;
+    bottom: 20px;
     right: 5%;
     font-size: 2rem;
     color: #fff;
