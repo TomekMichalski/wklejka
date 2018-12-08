@@ -9,9 +9,9 @@
 	}
 	
 
-	if(isset($_POST['paste'])&&strlen($_POST['topic'])<=30){
+	if(isset($_POST['paste'])&&strlen($_POST['topic'])<=30&&trim($_POST['paste'])!='' && trim($_POST['topic'])!=''){
 
-		$text=addslashes($_POST['paste']);
+		$text=htmlspecialchars(addslashes($_POST['paste']),ENT_QUOTES,"UTF-8");
 		$topic=htmlspecialchars($_POST['topic'],ENT_QUOTES,"UTF-8");
 	
 		$ourFileName = $topic.'-'.next_id('file');
@@ -20,10 +20,9 @@
 		$filesize=filesize('files/'.$ourFileName.'.zgs');
 		fclose($ourFileHandle);
 		$pdo->query("INSERT INTO file (`id_author`,`file`,`filename`,`size`,`time`,`school`,`class`,`room`) VALUES ('".$_SESSION['id']."','".$ourFileName.".zgs','".$topic."','$filesize','".date("d.m")."','".$_SESSION['school']."','".$_SESSION['class']."','".$_SESSION['room']."'  ) ");
-		$pdo->query("INSERT INTO chat (`id_author`,`text`,`time`,`school`,`class`,`room`) VALUES ('-1','".$user->user_info()[0]." ".$user->user_info()[1]." dodał nowy plik (wewnętrzny) ','".date("H:i")."','".$_SESSION['school']."','".$_SESSION['class']."','".$_SESSION['room']."'  ) ");
+		$pdo->query("INSERT INTO chat (`id_author`,`text`,`time`,`school`,`class`,`room`) VALUES ('-1','".$user->user_info()[0]." ".$user->user_info()[1]." dodał nowy plik (wewnętrzny) ','".date("H:i D")."','".$_SESSION['school']."','".$_SESSION['class']."','".$_SESSION['room']."'  ) ");
 
 		header('Refresh:0');
-
 
 	}
 
@@ -149,7 +148,7 @@
 			?>
 		</div>
 		<div class="version-control">
-			v.0.4.1beta
+			<?= VERSION //teraz wersje zmienasz tutaj - /classes/config.php ?>
 		</div>
 		<div class="logout" onclick='query("logout");location.reload();' title="Wyloguj się">
 			<ion-icon name="log-out"></ion-icon>

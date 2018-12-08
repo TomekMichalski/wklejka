@@ -41,11 +41,13 @@
 					
 			}while($ifexist->rowCount()!=0);
 			
-			$sql= $pdo->query("SELECT nick FROM users  WHERE email='".$_POST['email']."' ");
+			$sql= $pdo->query("SELECT name FROM users  WHERE email='".$_POST['email']."' ");
 			$user=$sql->fetch();
 			$pdo->query("INSERT INTO forgot_pass (`hash`,`email`) VALUES ('$hash','".$_POST['email']."') ");
 			
-			send_email('Przypomnienie hasla','Login: '.$user['nick'].'<br /> Link do zmiany hasła: <a href="https://zonegames.pl/wklejka/forgot_pass.php?secure_key='.$hash.'">Klik</a>',$_POST['email']);
+			$tags = [ '[name]' => $user['name'], '[hash]' => $hash ];
+
+			send_email($config['message_email']['forgot_pass']['topic'],str_replace(array_keys($tags), array_values($tags), $config['message_email']['forgot_pass']['message']) ,$_POST['email']);
 			echo 'Na twoj email została wyslana wiadomosc z linkiem do zmiany hasla.';
 			
 		}else

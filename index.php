@@ -25,7 +25,7 @@ if(isset($_POST['login'])){
 
 		if($time<60&&!$result['logout']){
 			$error = '<p class="login__incorrect-data">Aktualnie jest ktoś zalogowany na tym końcie!</p>';
-			send_email('Ostrzeżenie','Witaj  <b>'.$result['name'].' </b> <br/> Wykryliśmy podejrzane logowanie.<br /> Prosimy zmienić hasło <a href="https://zonegames.pl/wklejka/forgot_pass.php?action=logout">Tutaj</a> ',$result['email']);
+			send_email($config['message_email']['notification_login']['topic'], str_replace('[name]', $result['name'] , $config['message_email']['notification_login']['message'])  ,$result['email']);
 		}
 		else {
 
