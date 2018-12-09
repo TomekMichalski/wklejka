@@ -40,6 +40,17 @@
 		<link rel="icon" href="img/logo.png" sizes="32x32"/>
 		<!--<script src="main.js"></script>-->
 		
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-130672518-1"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-130672518-1');
+		</script>
+
+
 		<!-- sorki sa syf  wez to potem gdzies wsadz :) -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script>

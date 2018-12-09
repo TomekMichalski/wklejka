@@ -67,6 +67,17 @@ if(isset($_POST['login'])){
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 	<link rel="icon" href="img/logo.png" sizes="32x32"/>
     <!--<script src="main.js"></script>-->
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-130672518-1"></script>
+	<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+
+	gtag('config', 'UA-130672518-1');
+	</script>
+
 </head>
 <body class="body body--login">
     <div class="login">
