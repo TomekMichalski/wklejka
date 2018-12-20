@@ -38,6 +38,10 @@
 		<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 		<link rel="icon" href="img/logo.png" sizes="32x32"/>
+		<script defer src="https://use.fontawesome.com/releases/v5.6.1/js/all.js" integrity="sha384-R5JkiUweZpJjELPWqttAYmYM1P3SNEJRM6ecTQF05pFFtxmCO+Y1CiUhvuDzgSVZ" crossorigin="anonymous"></script>
+
+
+
 		<!--<script src="main.js"></script>-->
 		
 		<!-- Global site tag (gtag.js) - Google Analytics -->
@@ -81,7 +85,7 @@
 		</script>
 		
 	</head>
-	<body class="body body--chatroom"   >
+	<body class="body body--chatroom" onload='query("check_login")'  >
 		<div class="chatroom">
 			<div class="chatroom__left">
 				<div class="chatroom__time">
@@ -90,6 +94,8 @@
 				</div>
 				<div class="chatroom__current-channel">
 					<?=$user->actual_room(); ?>
+					<br />
+					Aktualnie Online: <span style="font-weight:bold;" class="online"></span>
 				</div>
 				<div class="channels">
 					<div class="channels__category" id="<?=$_SESSION['class'];  ?>">
@@ -98,22 +104,22 @@
 						</a>
 						<a href="chatroom.php" onclick='query("global");' >
 							<div class="channels__dropdown">
-								Globalny
+								Globalny &nbsp  <span class="online_gl"></span> 
 							</div>
 						</a>
 						<a href="chatroom.php" onclick='query("sites");' >
 							<div class="channels__dropdown">
-								Witryny
+								Witryny &nbsp <span class="online_st"></span> 
 							</div>
 						</a>
 						<a  href="chatroom.php" onclick='query("database");' >
 							<div class="channels__dropdown">
-								Bazy danych
+								Bazy danych &nbsp <span class="online_db"></span> 
 						</div>
 						</a>
 						<a href="chatroom.php" onclick='query("informatics");' >
 							<div class="channels__dropdown">
-								Informatyka
+								Informatyka &nbsp <span class="online_it"></span> 
 							</div>
 						</a>
 
@@ -134,8 +140,8 @@
 					echo '<div class="chatbox" id="chat"></div>
 					<div class="chat-form">
 						<form id="add_text" >
-						<!-- <textarea placeholder="Napisz wiadomość!" class="chat-form__text" id="tresc" name="message" required></textarea> -->
-							 <input type="text" placeholder="Napisz wiadomość!" class="chat-form__text" id="tresc" name="message" required> 
+						<!--	 <textarea placeholder="Napisz wiadomość!" class="chat-form__text" id="tresc" name="message" required></textarea>  -->
+						 <input type="text" placeholder="Napisz wiadomość!" class="chat-form__text" id="tresc" name="message" required>
 							<input type="submit" class="chat-form__submit">
 						</form>
 					'.$switch_type.'
@@ -231,9 +237,40 @@
 				
 		
 			};
-			
+
+			function check_how_many_logged(){
+
+				const online_db_HTML=document.querySelector("span.online_db");
+				const online_it_HTML=document.querySelector("span.online_it");
+				const online_gl_HTML=document.querySelector("span.online_gl");
+				const online_st_HTML=document.querySelector("span.online_st");
+
+				const online_HTML=document.querySelector("span.online");
+
+				var online=query('how_many_online');
+
+				var online_all=online[0]['db']+online[0]['it']+online[0]['gl']+online[0]['st'];
+				if(online_HTML.innerHTML!=online_all)
+					online_HTML.innerHTML=online_all;
+
+
+				if(online_db_HTML.innerHTML!='<i class="fas fa-users"></i>  &nbsp'+online[0]['db'] && online[0]['db']!=0 )
+					online_db_HTML.innerHTML='<i class="fas fa-users"></i>  &nbsp'+online[0]['db'];
+
+				if(online_it_HTML.innerHTML!='<i class="fas fa-users"></i>  &nbsp'+online[0]['it'] && online[0]['it']!=0 )
+					online_it_HTML.innerHTML='<i class="fas fa-users"></i>  &nbsp'+online[0]['it'];
+
+				if(online_gl_HTML.innerHTML!='<i class="fas fa-users"></i>  &nbsp'+online[0]['gl'] && online[0]['gl']!=0 )
+					online_gl_HTML.innerHTML='<i class="fas fa-users"></i>  &nbsp'+online[0]['gl'];	
+				
+				if(online_st_HTML.innerHTML!='<i class="fas fa-users"></i>  &nbsp'+online[0]['st'] && online[0]['st']!=0 )
+					online_st_HTML.innerHTML='<i class="fas fa-users"></i>  &nbsp'+online[0]['st'];	
+				
+			}
+			check_how_many_logged();
 			add_chat();
 			setInterval('add_chat()',1e3);
+			setInterval('check_how_many_logged()',1e3);
 			setInterval('query("check_login")',60 * 1000);
 			
 		</script>

@@ -23,8 +23,8 @@ if(isset($_POST['login'])){
 
 		$time=round((strtotime(date("Y-m-d H:i"))-strtotime($result['last_login']))); 
 
-		if($time<60&&!$result['logout']){
-			$error = '<p class="login__incorrect-data">Aktualnie jest ktoś zalogowany na tym końcie!</p>';
+		if($time<=60&&!$result['logout']){
+			$error = '<p class="login__incorrect-data">Aktualnie jest ktoś zalogowany na tym koncie!</p>';
 			send_email($config['message_email']['notification_login']['topic'], str_replace('[name]', $result['name'] , $config['message_email']['notification_login']['message'])  ,$result['email']);
 		}
 		else {

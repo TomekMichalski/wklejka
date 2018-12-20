@@ -5,17 +5,749 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Coś się stało!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
+   
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <!--<script src="main.js"></script>-->
+	
+	<style>
+	
+	@import url("../base/variables.scss");
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  font-weight: 400; }
+
+a {
+  color: #fff;
+  text-decoration: none; }
+
+body, html {
+  font-size: 62.5%;
+  font-family: 'Lato', sans-serif;
+  overflow-x: hidden;
+  width: 100%; }
+
+*:focus {
+  outline: none; }
+
+.body {
+  background-color: #001b1f; }
+  .body--login {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Cpolygon fill='%23005ba0' points='957 450 539 900 1396 900'/%3E%3Cpolygon fill='%230d42bd' points='957 450 872.9 900 1396 900'/%3E%3Cpolygon fill='%2300da89' points='-60 900 398 662 816 900'/%3E%3Cpolygon fill='%23350efd' points='337 900 398 662 816 900'/%3E%3Cpolygon fill='%2300b0a7' points='1203 546 1552 900 876 900'/%3E%3Cpolygon fill='%231b23f6' points='1203 546 1552 900 1162 900'/%3E%3Cpolygon fill='%2300104e' points='641 695 886 900 367 900'/%3E%3Cpolygon fill='%230c13d6' points='587 900 641 695 886 900'/%3E%3Cpolygon fill='%2300eeec' points='1710 900 1401 632 1096 900'/%3E%3Cpolygon fill='%23004abc' points='1710 900 1401 632 1365 900'/%3E%3Cpolygon fill='%2300b4e0' points='1210 900 971 687 725 900'/%3E%3Cpolygon fill='%230055d8' points='943 900 1210 900 971 687'/%3E%3C/svg%3E");
+    background-attachment: fixed;
+    background-size: cover; }
+  .body--chatroom {
+    background-color: #001B1F;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative; }
+
+.heading__primary {
+  position: absolute;
+  color: #fff;
+  font-size: 4.8rem;
+  display: block;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap; }
+  .heading__primary--login {
+    top: 7.6rem; }
+  .heading__primary--rooms {
+    top: 4rem; }
+  @media screen and (max-width: 1400px) {
+    .heading__primary {
+      font-size: 3.6rem; }
+      .heading__primary--login {
+        top: 5rem; } }
+
+.heading__secondary {
+  position: absolute;
+  color: #fff;
+  font-size: 3.3rem;
+  display: block;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap; }
+  .heading__secondary--rooms {
+    top: 85px;
+    font-size: 3.6rem; }
+
+.logout {
+  color: #fff;
+  background-color: #008C95;
+  position: absolute;
+  padding: 3px;
+  bottom: 100px;
+  cursor: pointer;
+  transition: all .2s;
+  height: 35px;
+  width: 35px;
+  bottom: 20px;
+  left: 140px;
+  font-size: 30px; }
+  .logout:active {
+    transform: scale(0.95);
+    background-color: #00747c; }
+
+.version-control {
+  position: absolute;
+  color: #8f8f8f;
+  bottom: 20px;
+  left: 20px;
+  font-size: 18px; }
+
+.chatbox {
+  width: calc(100vw - 300px);
+  height: calc(100vh - 100px);
+  margin: 0 0 100px 300px;
+  overflow: hidden;
+  position: relative;
+  font-family: 'lato', sans-serif;
+  padding: 10px;
+  overflow-x: hidden;
+  overflow-y: scroll; }
+  .chatbox__chat {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    position: relative; }
+    .chatbox__chat--self {
+      flex-direction: row-reverse; }
+    .chatbox__chat--self .chatbox__message {
+      background-color: #1ddced; }
+    .chatbox__chat--self .chatbox__author {
+      right: 14px; }
+    .chatbox__chat--friend .chatbox__message {
+      background-color: #1adda4; }
+    .chatbox__chat--friend .chatbox__author {
+      left: 14px; }
+    .chatbox__chat--admin .chatbox__message {
+      background-color: #961add; }
+    .chatbox__chat--admin .chatbox__author {
+      left: 14px; }
+    .chatbox__chat--system .chatbox__message {
+      background-color: #c4891c; }
+    .chatbox__chat--system .chatbox__author {
+      left: 14px; }
+  .chatbox__message {
+    width: auto;
+    max-width: 50%;
+    padding: 15px;
+    margin: 0px 10px 0;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 20px;
+    word-wrap: break-word; }
+  .chatbox__author {
+    position: absolute;
+    bottom: -15px;
+    color: #fff;
+    font-size: 12px;
+    white-space: nowrap; }
+  .chatbox::-webkit-scrollbar {
+    width: 10px; }
+  .chatbox::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: #086169; }
+
+.chat-form {
+  bottom: 0;
+  right: 0;
+  height: 100px;
+  width: calc(100% - 300px);
+  position: absolute;
+  background-color: #005f6b;
+  padding: 30px 15px; }
+  .chat-form form {
+    position: absolute;
+    height: 40px;
+    width: calc(100% - 30px);
+    white-space: nowrap; }
+  .chat-form__text {
+    height: 40px;
+    width: 45%;
+    min-width: 300px;
+    resize: none;
+    position: absolute;
+    padding: 10px;
+    border: none;
+    font-size: 20px;
+    color: #fff;
+    background-color: #343838; }
+    .chat-form__text::-webkit-scrollbar {
+      display: none; }
+    .chat-form__text::placeholder {
+      color: #979797; }
+    .chat-form__text:placeholder-shown + .chat-form__submit {
+      background-color: #7c7c7c; }
+  .chat-form__submit {
+    position: absolute;
+    margin: 0;
+    margin-left: calc(45% + 20px);
+    height: 40px;
+    width: auto;
+    padding: 10px;
+    border: none;
+    font-size: 18px;
+    background-color: #00dffc;
+    color: #fff;
+    font-weight: 400;
+    text-transform: uppercase;
+    transition: all .2s;
+    cursor: pointer; }
+    .chat-form__submit:active {
+      transform: scale(0.98); }
+    @media only screen and (max-width: 1000px) {
+      .chat-form__submit {
+        margin-left: 320px; } }
+  .chat-form__switch {
+    position: absolute;
+    width: auto;
+    height: 40px;
+    font-size: 30px;
+    padding: 5px;
+    background-color: #008c9e;
+    color: #fff;
+    cursor: pointer;
+    border: 0;
+    right: 30px; }
+    .chat-form__switch:active {
+      transform: scale(0.98); }
+
+.file-browser {
+  width: calc(100vw - 300px);
+  height: calc(100vh - 100px);
+  margin: 0 0 100px 300px;
+  overflow: hidden;
+  position: relative;
+  font-family: 'lato', sans-serif;
+  padding: 25px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  flex-wrap: wrap;
+  align-self: flex-start;
+  display: flex; }
+  .file-browser::-webkit-scrollbar {
+    width: 10px; }
+  .file-browser::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: #086169; }
+  .file-browser__card {
+    height: 150px;
+    width: 300px;
+    background-color: #005f6b;
+    margin-right: 40px;
+    margin-bottom: 30px;
+    -webkit-box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+    position: relative; }
+    .file-browser__card__background {
+      position: absolute;
+      top: 15px;
+      font-size: 120px; }
+      .file-browser__card__background--js {
+        color: #ffff00; }
+      .file-browser__card__background--cpp, .file-browser__card__background--docx, .file-browser__card__background--doc, .file-browser__card__background--exc {
+        color: #0089c9; }
+      .file-browser__card__background--jpg, .file-browser__card__background--png, .file-browser__card__background--sql {
+        color: #af7800; }
+      .file-browser__card__background--accdb, .file-browser__card__background--zip, .file-browser__card__background--rar {
+        color: #6900be; }
+      .file-browser__card__background--xlsx, .file-browser__card__background--xlsm, .file-browser__card__background--xlsm, .file-browser__card__background--xlsb, .file-browser__card__background--xltx, .file-browser__card__background--xltm, .file-browser__card__background--xls {
+        color: #00a008; }
+      .file-browser__card__background--ppsx, .file-browser__card__background--ppsm {
+        color: #ff7300; }
+      .file-browser__card__background--txt {
+        color: #575757; }
+      .file-browser__card__background--pdf {
+        color: #c00000; }
+      .file-browser__card__background--html {
+        color: #c94000; }
+      .file-browser__card__background--css {
+        color: #00b7ff; }
+      .file-browser__card__background--zgs {
+        color: #0044ff; }
+    .file-browser__card__filetype {
+      position: absolute;
+      width: 90px;
+      height: 120px;
+      font-size: 25px;
+      font-weight: 600;
+      display: flex;
+      justify-content: flex-end; }
+      .file-browser__card__filetype__span {
+        align-self: flex-end; }
+        .file-browser__card__filetype__span--js {
+          color: #000; }
+        .file-browser__card__filetype__span--cpp, .file-browser__card__filetype__span--jpg, .file-browser__card__filetype__span--png, .file-browser__card__filetype__span--png, .file-browser__card__filetype__span--png, .file-browser__card__filetype__span--png, .file-browser__card__filetype__span--png, .file-browser__card__filetype__span--png, .file-browser__card__filetype__span--sql, .file-browser__card__filetype__span--accdb, .file-browser__card__filetype__span--sql, .file-browser__card__filetype__span--sql, .file-browser__card__filetype__span--sql, .file-browser__card__filetype__span--xlsx, .file-browser__card__filetype__span--xlsm, .file-browser__card__filetype__span--xlsm, .file-browser__card__filetype__span--xlsb, .file-browser__card__filetype__span--xltx, .file-browser__card__filetype__span--xltm, .file-browser__card__filetype__span--xls, .file-browser__card__filetype__span--ppsx, .file-browser__card__filetype__span--ppsm, .file-browser__card__filetype__span--docx, .file-browser__card__filetype__span--doc, .file-browser__card__filetype__span--txt, .file-browser__card__filetype__span--pdf, .file-browser__card__filetype__span--zip, .file-browser__card__filetype__span--rar, .file-browser__card__filetype__span--css, .file-browser__card__filetype__span--html {
+          color: #fff; }
+        .file-browser__card__filetype__span--zgs {
+          color: #ff0000; }
+    .file-browser__card__info {
+      width: 170px;
+      position: relative;
+      height: 150px;
+      float: right; }
+      .file-browser__card__info__name {
+        font-size: 20px;
+        color: #fff;
+        margin-top: 20px;
+        display: block; }
+      .file-browser__card__info__size {
+        margin-top: 10px;
+        display: block;
+        font-size: 14px;
+        color: #fff; }
+      .file-browser__card__info__author {
+        margin-top: 10px;
+        display: block;
+        font-size: 14px;
+        color: #fff; }
+      .file-browser__card__info__date {
+        margin-top: 10px;
+        display: block;
+        font-size: 14px;
+        color: #fff; }
+
+.file-form {
+  bottom: 0;
+  right: 0;
+  height: 100px;
+  width: calc(100% - 300px);
+  position: absolute;
+  background-color: #005f6b;
+  padding: 30px 15px; }
+  .file-form form {
+    position: absolute;
+    height: 40px;
+    width: calc(100% - 30px);
+    white-space: nowrap; }
+  .file-form__file-button {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1; }
+  .file-form__file-submit {
+    width: auto;
+    height: 40px;
+    font-size: 20px;
+    font-weight: 400;
+    padding: 5px;
+    color: white;
+    background-color: #00b7ff;
+    display: inline-block;
+    cursor: pointer; }
+    .file-form__file-submit ion-icon {
+      font-size: 30px;
+      position: absolute;
+      top: 3px; }
+  .file-form__directInput {
+    position: absolute;
+    margin: 0;
+    margin-left: 300px;
+    height: 40px;
+    width: auto;
+    padding: 10px;
+    border: none;
+    font-size: 18px;
+    background-color: #00dffc;
+    color: #fff;
+    font-weight: 400;
+    text-transform: uppercase;
+    transition: all .2s;
+    cursor: pointer; }
+  .file-form__submit {
+    position: absolute;
+    margin: 0;
+    margin-left: 20px;
+    height: 40px;
+    width: auto;
+    padding: 10px;
+    border: none;
+    font-size: 18px;
+    background-color: #00dffc;
+    color: #fff;
+    font-weight: 400;
+    text-transform: uppercase;
+    transition: all .2s;
+    cursor: pointer; }
+    .file-form__submit:active {
+      transform: scale(0.98); }
+    @media only screen and (max-width: 1000px) {
+      .file-form__submit {
+        margin-left: 320px; } }
+  .file-form__switch {
+    position: absolute;
+    width: auto;
+    height: 40px;
+    font-size: 30px;
+    padding: 5px;
+    background-color: #008c9e;
+    color: #fff;
+    cursor: pointer;
+    border: 0;
+    right: 30px; }
+    .file-form__switch:active {
+      transform: scale(0.98); }
+
+label {
+  width: 100px;
+  height: 200px; }
+
+.directPaste {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  transition: all .2s; }
+  .directPaste__container {
+    width: 50%;
+    max-width: 700px;
+    min-width: 500px;
+    height: 80%;
+    max-height: 800px;
+    min-height: 700px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #005f6b;
+    border-radius: 10px;
+    box-shadow: 0px 10px 10px -2px rgba(0, 0, 0, 0.5); }
+  .directPaste__heading {
+    font-size: 6rem;
+    color: #fff;
+    text-align: center;
+    margin-top: 2rem;
+    word-wrap: break-word; }
+    @media only screen and (max-width: 1200px) {
+      .directPaste__heading {
+        font-size: 5rem; } }
+  .directPaste__topic {
+    padding: 10px;
+    font-size: 2rem;
+    color: #fff;
+    background-color: #343838;
+    border: none;
+    border-radius: 10px;
+    box-shadow: inset 0px 0px 15px 0px rgba(0, 0, 0, 0.5);
+    margin: 30px auto;
+    display: block;
+    width: 90%; }
+  .directPaste__input {
+    display: block;
+    position: absolute;
+    width: 90%;
+    height: 70%;
+    resize: none;
+    left: 50%;
+    bottom: 20px;
+    transform: translateX(-50%);
+    padding: 10px;
+    font-size: 2rem;
+    color: #fff;
+    background-color: #343838;
+    border: none;
+    border-radius: 10px;
+    box-shadow: inset 0px 0px 15px 0px rgba(0, 0, 0, 0.5); }
+    .directPaste__input:placeholder-shown + .directPaste__submit {
+      display: none; }
+  .directPaste__submit {
+    position: absolute;
+    bottom: 20px;
+    right: 5%;
+    font-size: 2rem;
+    color: #fff;
+    background-color: #005f6b;
+    border: none;
+    padding: 10px;
+    border-radius: 10px 0 0 0;
+    cursor: pointer; }
+
+.error {
+  position: absolute;
+  height: 450px;
+  width: 350px;
+  left: 50%;
+  top: 30%;
+  transform: translate(-50%, -50%); }
+  .error .heading--primary {
+    color: aqua; }
+  .error__message {
+    color: #fff;
+    line-height: 120%;
+    font-size: 2rem;
+    top: 200px;
+    text-align: center; }
+    .error__message:not(:last-child) {
+      margin: 200px auto 50px auto; }
+    .error__message a {
+      color: aqua;
+      text-decoration: none; }
+
+.login {
+  position: absolute;
+  height: 750px;
+  width: 650px;
+  background-color: #008C95;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0px 10px 10px -2px rgba(0, 0, 0, 0.5); }
+  .login__icon {
+    color: #fff;
+    font-size: 60px;
+    position: absolute; }
+    .login__icon--login {
+      left: 120px;
+      top: 250px; }
+    .login__icon--password {
+      left: 120px;
+      top: 390px; }
+  .login__input {
+    display: block;
+    width: 425px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border: none;
+    border-bottom: 3px solid #fff;
+    padding-left: 103px;
+    padding-bottom: 15px;
+    font-family: 'Roboto', sans-serif;
+    height: 5rem;
+    font-size: 2.8rem;
+    color: #fff; }
+    .login__input--login {
+      top: 271px;
+      background-color: transparent; }
+    .login__input--password {
+      top: 411px;
+      background-color: transparent; }
+    .login__input::placeholder {
+      color: #ffffffb3;
+      text-transform: uppercase;
+      font-size: 2.8rem; }
+    .login__input:-webkit-autofill, .login__input:-webkit-autofill:hover, .login__input:-webkit-autofill:focus {
+      -webkit-text-fill-color: #62ff5c;
+      -webkit-box-shadow: 0 0 0px 1000px rgba(0, 0, 0, 0) inset;
+      transition: background-color 5000s ease-in-out 0s; }
+  .login__btn {
+    position: absolute;
+    background-color: #00F0FF;
+    border: none;
+    bottom: 169px;
+    height: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 425px;
+    color: #fff;
+    font-size: 2.8rem;
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+    -webkit-box-shadow: 0px 10px 10px -2px rgba(0, 0, 0, 0.35);
+    -moz-box-shadow: 0px 10px 10px -2px rgba(0, 0, 0, 0.35);
+    box-shadow: 0px 10px 10px -2px rgba(0, 0, 0, 0.35);
+    transition: all .2s;
+    cursor: pointer; }
+    .login__btn:active {
+      transform: translate(-50%, 5px);
+      -webkit-box-shadow: 0px 5px 10px -2px rgba(0, 0, 0, 0.35);
+      -moz-box-shadow: 0px 5px 10px -2px rgba(0, 0, 0, 0.35);
+      box-shadow: 0px 5px 10px -2px rgba(0, 0, 0, 0.35);
+      outline: none; }
+  .login__forgot {
+    color: #fff;
+    font-family: 'Lato', sans-serif;
+    font-size: 1.8rem;
+    position: absolute;
+    bottom: 126px;
+    left: 113px; }
+  @media screen and (max-width: 1400px) {
+    .login {
+      height: 550px;
+      width: 450px;
+      -webkit-box-shadow: 0px 5px 5px -2px rgba(0, 0, 0, 0.35);
+      -moz-box-shadow: 0px 5px 5px -2px rgba(0, 0, 0, 0.35);
+      box-shadow: 0px 5px 5px -2px rgba(0, 0, 0, 0.35); }
+      .login__icon {
+        font-size: 40px; }
+        .login__icon--login {
+          left: 80px;
+          top: 165px; }
+        .login__icon--password {
+          left: 80px;
+          top: 265px; }
+      .login__input {
+        width: 300px;
+        padding-left: 60px;
+        padding-bottom: 3px;
+        height: 3.3rem;
+        font-size: 2.2rem; }
+        .login__input--login {
+          top: 180px; }
+        .login__input--password {
+          top: 280px; }
+        .login__input::placeholder {
+          font-size: 2.2rem; }
+      .login__btn {
+        bottom: 140px;
+        height: 40px;
+        width: 300px;
+        font-size: 1.8rem;
+        -webkit-box-shadow: 0px 5px 5px -2px rgba(0, 0, 0, 0.35);
+        -moz-box-shadow: 0px 5px 5px -2px rgba(0, 0, 0, 0.35);
+        box-shadow: 0px 5px 5px -2px rgba(0, 0, 0, 0.35); }
+        .login__btn:active {
+          transform: translate(-50%, 2px);
+          -webkit-box-shadow: 0px 2px 2px -2px rgba(0, 0, 0, 0.35);
+          -moz-box-shadow: 0px 2px 2px -2px rgba(0, 0, 0, 0.35);
+          box-shadow: 0px 2px 2px -2px rgba(0, 0, 0, 0.35); }
+      .login__forgot {
+        font-size: 1.4rem;
+        position: absolute;
+        bottom: 115px;
+        left: 78px; } }
+  .login__incorrect-data {
+    position: absolute;
+    bottom: 50px;
+    font-size: 2.4rem;
+    color: #ff0000;
+    left: 50%;
+    transform: translateX(-50%); }
+
+.rooms {
+  width: 800px;
+  height: 300px;
+  position: absolute;
+  left: 50%;
+  top: 150px;
+  transform: translateX(-50%);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 25px; }
+  .rooms heading--primary {
+    top: 3rem; }
+  .rooms__card {
+    width: 250px;
+    height: 100%;
+    position: relative;
+    transition: all .2s;
+    -webkit-box-shadow: 0px 10px 10px -2px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0px 10px 10px -2px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 10px 10px -2px rgba(0, 0, 0, 0.5); }
+    .rooms__card--1 {
+      background-color: #00955F; }
+    .rooms__card--2 {
+      background-color: #008C95; }
+    .rooms__card--3 {
+      background-color: #912F8D; }
+    .rooms__card:active {
+      transform: scale(0.96);
+      -webkit-box-shadow: 0px 10px 10px -2px rgba(0, 0, 0, 0.5);
+      -moz-box-shadow: 0px 5px 5px -2px rgba(0, 0, 0, 0.5);
+      box-shadow: 0px 5px 5px -2px rgba(0, 0, 0, 0.5); }
+  .rooms__desc {
+    color: #fff;
+    font-size: 2rem;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 100px;
+    white-space: nowrap; }
+
+.chatroom {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  font-family: 'lato', sans-serif; }
+  .chatroom__left {
+    background-color: #153941;
+    width: 300px;
+    height: 100%;
+    position: fixed; }
+  .chatroom__time {
+    margin: 15px 15px 0 15px;
+    width: calc(100% - (2*15px));
+    height: 25px;
+    background-color: #1F5754;
+    color: #fff;
+    font-size: 1.8rem;
+    padding: 1px 5px 0 5px;
+    position: relative; }
+    .chatroom__time__date {
+      display: block;
+      position: absolute; }
+    .chatroom__time__clock {
+      position: absolute;
+      right: 5px;
+      display: block; }
+  .chatroom__current-channel {
+    background-color: #1F5754;
+    color: #fff;
+    font-size: 1.8rem;
+    display: block;
+    width: auto;
+    text-align: center;
+    margin: 30px 15px 0 15px;
+    padding: 1px 5px 0 5px; }
+
+.channels {
+  width: 100%;
+  height: 70%;
+  position: absolute;
+  bottom: 0;
+  color: #fff;
+  font-size: 2rem; }
+  .channels__heading {
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    width: 100%;
+    height: 45px;
+    background-color: #00798B;
+    padding: 10px 15px 0 15px;
+    margin-top: 1px; }
+  .channels__category:target .channels__dropdown {
+    height: 45px;
+    display: block;
+    margin-top: 1px;
+    padding: 10px 15px 0 15px; }
+  .channels__dropdown {
+    display: block;
+    overflow: hidden;
+    height: 0px;
+    transition: all .3s;
+    background-color: #005360;
+    padding-left: 15px; }
+
+	
+	
+	</style>
+	
+	
 </head>
 <body class="body body--error">
     
     <div class="error">
         <h1 class="heading--primary">Ups!</h1>
         <p class="error__message">Mamy najlepszych programistów, najwyraźniej sam coś zepsułeś...</p>
-        <p class="error__message">Kliknij <a href="index.php">tutaj</a>, by wrócić na stronę logowania.</p>
+        <p class="error__message">Kliknij <a href="/wklejka">tutaj</a>, by wrócić na stronę logowania.</p>
     </div>
 
     <script src="https://unpkg.com/ionicons@4.2.2/dist/ionicons.js"></script>
